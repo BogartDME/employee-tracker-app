@@ -5,21 +5,21 @@ VALUES (37, "defense"),
        (81, "laundry");
 
 INSERT INTO roles (id, title, salary)
-       (37, "stormtrooper", 30000.00),
-       (37, "tie fighter pilot", 40000.00),
-       (37, "gunner", 25000.00),
+VALUES (32, "stormtrooper", 30000.00),
+       (33, "tie fighter pilot", 40000.00),
+       (34, "gunner", 25000.00),
        (16, "droid repair", 30000.00),
-       (16, "compactor services", 24000.00),
-       (16, "console repair", 30000.00),
-       (68, "personal armor buffer", 40000.00),
-       (68, "bacta bath operator", 28000.00),
+       (17, "compactor services", 24000.00),
+       (18, "console repair", 30000.00),
+       (66, "personal armor buffer", 40000.00),
+       (67, "bacta bath operator", 28000.00),
        (68, "respitory therapist", 50000.00),
-       (81, "armor polisher", 20000.00),
-       (81, "wash/dryer operator", 20000.00),
-       (81, "carbon hole repair", 24000.00);
+       (87, "armor polisher", 20000.00),
+       (88, "wash/dryer operator", 20000.00),
+       (89, "carbon hole repair", 24000.00);
 
 INSERT INTO employee (id, first_name, last_name)
-       (6182, "Charles", "Beatty"),
+VALUES (6182, "Charles", "Beatty"),
        (9784, "Yon", "Bermudez"),
        (7236, "Denart", "Ifurung"), 
        (2763, "Jerry", "Mccarty"),
