@@ -1,15 +1,3 @@
--- Drops the employee_db if it exists currently --
-DROP DATABASE IF EXISTS employee_db;
---Drops tables if they exist currently--
-DROP TABLE IF EXISTS departments;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS employee;
-
--- Creates the inventory_db database --
-CREATE DATABASE employee_db;
-
--- use employee_db database --
-USE employee_db;
 
 
 -- Creates the table "department" within employee_db --
@@ -33,14 +21,14 @@ CREATE TABLE roles (
   department_id INT,
   FOREIGN KEY (department_id)
   REFERENCES    department(id)
-  ON DELETE SET NULL
+  ON DELETE CASCADE
 );
 
 
 -- Creates the table "employee" within employee_db --
 CREATE TABLE employee (
   -- Creates a numeric column called "id" --
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   -- Makes a string column called "first_name" which cannot contain null --
   first_name VARCHAR(30) NOT NULL,
   -- Makes a string column called "last_name" which cannot contain null --
@@ -49,12 +37,12 @@ CREATE TABLE employee (
   roles_id INT NOT NULL,
   CONSTRAINT fk_roles_id FOREIGN KEY(roles_id)
   REFERENCES roles(id)
-  ON DELETE SET NULL
+  ON DELETE CASCADE,
   -- Makes a numeric column called "manager_id" --
   manager_id INT,
   CONSTRAINT fk_manager_id FOREIGN KEY (manager_id)
   REFERENCES employee(id)
-  ON DELETE SET NULL
+  ON DELETE CASCADE
 );
 
 
