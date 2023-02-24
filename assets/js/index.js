@@ -1,6 +1,6 @@
 // These are the imports
 const inquirer = require("inquirer");
-const db = require("/Users/edwinpietrowski/Desktop/bootcamp/projects/employee-tracker-app/config/connection.js");
+const db = require("./config/connection.js");
 const mysql = require("mysql2");
 var figlet = require('figlet');
 const cTable = require("console.table");
