@@ -178,7 +178,7 @@ function showEmployees() {
     (err, results) =>{
         if (err) throw err;
         console.table(results);
-        questions();
+        employeePrompts();
     });
 }
 
