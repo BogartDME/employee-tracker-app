@@ -1,12 +1,12 @@
 // These are the imports
 const inquirer = require("inquirer");
-const database = require("./config/connection.js");
+const db = require("/Users/edwinpietrowski/Desktop/bootcamp/projects/employee-tracker-app/config/connection.js");
 const mysql = require("mysql2");
 var figlet = require('figlet');
-const consoleTable = require("console.table");
+const cTable = require("console.table");
 
 
-figlet('Empire: Death Star Employee Tracker', function(err, data) {
+figlet('Empire: Employee Tracker', function(err, data) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
@@ -17,7 +17,7 @@ figlet('Empire: Death Star Employee Tracker', function(err, data) {
 
 const employeePrompts = () => {
     
-    inquirer.createPromptModule([
+    inquirer.prompt([
 
         {
             type: "list",
@@ -81,7 +81,7 @@ function addDepartment() {
         console.table(results); 
         console.table(results);
         console.log("Your new department has been added to the database");
-        \employeePrompts();
+        employeePrompts();
         });
     });
 } 
@@ -91,7 +91,7 @@ function viewRoles() {
     db.query("SELECT * FROM roles", 
     (err, results) => {
         if (err) throw err;
-        .console.table(results);
+        console.table(results);
         employeePrompts();
     });
 }
@@ -127,7 +127,7 @@ function addRole() {
                 const newRole = "INSERT INTO roles SET ?";
                 db.query(newRole. data, function (err, results){
                     if (err) throw err;
-                    .console.log("Your new role has been created");
+                    console.log("Your new role has been created");
                     employeePrompts();
                 });
             });
@@ -194,7 +194,7 @@ function addEmployee() {
                 };
             });
             employeeList.push({name: "none", value: "null"});
-            db.quiery("SELECT id, title FROM roles"),
+            db.query("SELECT id, title FROM roles"),
             (err, results) => {
                 roleList = results.map((role) => {
                     return {
@@ -245,3 +245,7 @@ function addEmployee() {
             });
         });
 }
+
+employeePrompts();
+
+
