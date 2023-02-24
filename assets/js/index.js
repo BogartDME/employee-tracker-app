@@ -6,7 +6,7 @@ var figlet = require('figlet');
 const cTable = require("console.table");
 
 
-figlet('Empire: Employee Tracker', function(err, data) {
+figlet('Empire: Employees', function(err, data) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
