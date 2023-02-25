@@ -61,7 +61,7 @@ function showDepartments() {
     });
 }
 
-//Adds a department
+//Adds a new department
 function addDepartment() {
     inquirer.prompt ([
         {
@@ -79,7 +79,6 @@ function addDepartment() {
         },
         function (err, results) {
         console.table(results); 
-        console.table(results);
         console.log("Your new department has been added to the database");
         employeePrompts();
         });
@@ -87,7 +86,7 @@ function addDepartment() {
 } 
 
 //View all roles
-function viewRoles() {
+function showRoles() {
     db.query("SELECT * FROM roles", 
     (err, results) => {
         if (err) throw err;
