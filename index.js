@@ -187,7 +187,7 @@ function addEmployee() {
     db.query (
         "SELECT id, first_name, last_name FROM employee",
         (err, results) => {
-            employeeList = results.map((employee) (err, results) => {
+            employeeList = results.map((employee) => {
                 return {
                     name: employee.first_name + "/" + employee.last_name,
                     value: employee.id
