@@ -139,7 +139,7 @@ function updateEmployeeRole() {
     db.query("SELECT id, title FROM roles", 
     (err, results)=> {
         roleOptions= results.map((role)=> {
-            return { name: role.title, value: role.id };
+            return { name: roles.title, value: roles.id };
         });
         db.query("SELECT id, first_name, last_name FROM employee",
         function(err, results){
@@ -195,10 +195,10 @@ function addEmployee() {
             employeeList.push({name: "none", value: "null"});
             db.query("SELECT id, title FROM roles"),
             (err, results) => {
-                roleList = results.map((role) => {
+                roleList = results.map((roles) => {
                     return {
-                        name: role.title,
-                        value: role.id
+                        name: roles.title,
+                        value: roles.id
                     };
                 });
             }
@@ -217,13 +217,13 @@ function addEmployee() {
                     type: "list",
                     message: "What is the new employee's role",
                     name: "employeeRole",
-                    choices: employeeList,
+                    choices: roleList,
                 },
                 {
                     type: "list",
                     message: "Who is the new employee's manager",
                     name: "employeeManager",
-                    choices: employeeList,
+                    choices: employeeList,$
                 },
             ])
             .then((data) => {
