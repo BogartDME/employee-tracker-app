@@ -22,7 +22,7 @@ const employeePrompts = () => {
         {
             type: "list",
             name: "start",
-            choices: ["View all departments", "Add department, View all Roles", "Add role", "View all employees", "Update employee role", "Add employee", "Quit"]
+            choices: ["View all departments", "Add department", "View all Roles", "Add role", "View all employees", "Update employee role", "Add employee", "Quit"]
         },
     ])
         .then((data) =>{
@@ -156,7 +156,7 @@ function updateEmployeeRole() {
                     type: "list",
                     message: "Select the employee you would like to update",
                     name: "newEmployeeRole",
-                    choices: roleList,
+                    choices: roleOptions,
                 },
             ])
             .then((data) => {
@@ -187,10 +187,10 @@ function addEmployee() {
     db.query (
         "SELECT id, first_name, last_name FROM employee",
         (err, results) => {
-            employeeList = results.map((employee) => {
+            employeeList = results.map((employee) (err, results) => {
                 return {
-                    name: role.title,
-                    value: role.id
+                    name: employee.first_name + "/" + employee.last_name,
+                    value: employee.id
                 };
             });
             employeeList.push({name: "none", value: "null"});
