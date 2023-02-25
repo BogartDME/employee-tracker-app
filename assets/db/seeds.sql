@@ -5,7 +5,7 @@ VALUES (1, "defense"),
        (4, "laundry");
 
 INSERT INTO roles (id, title, salary)
-VALUES (1, "stormtrooper", 30000.00),
+VALUES (1, "stormtrooper", 30000.00);
     --    (33, "tie fighter pilot", 40000.00),
     --    (34, "gunner", 25000.00),
     --    (16, "droid repair", 30000.00),
@@ -19,7 +19,7 @@ VALUES (1, "stormtrooper", 30000.00),
     --    (89, "carbon hole repair", 24000.00);
 
 INSERT INTO employee (id, first_name, last_name, roles_id, manager_id)
-VALUES (1, "Charles", "Beatty", 1, NULL),
+VALUES (1, "Charles", "Beatty", 1, NULL);
     --    (9784, "Yon", "Bermudez", 32, NULL ),
     --    (7236, "Denart", "Ifurung", 32, NULL ), 
     --    (2763, "Jerry", "Mccarty", 32, 1),
