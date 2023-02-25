@@ -53,12 +53,12 @@ const employeePrompts = () => {
 
 //View All Departments\
 function showDepartments() {
-    db.query("SELECT * FROM department;"),
+    db.query("SELECT * FROM department;",
     (err, results) =>{
         if (err) throw err;
         console.table(results);
         employeePrompts(); 
-    }
+    });
 }
 
 //Adds a department
