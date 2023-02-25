@@ -1,3 +1,5 @@
+USE employee_db; 
+
 
 
 -- Creates the table "department" within employee_db --
@@ -19,9 +21,9 @@ CREATE TABLE roles (
   salary DECIMAL NOT NULL,
    -- Makes a numeric column called "department_id" which cannot contain null --
   department_id INT,
-  -- FOREIGN KEY (department_id)
-  -- REFERENCES    department(id)
-  -- ON DELETE CASCADE
+  FOREIGN KEY (department_id)
+   REFERENCES    department(id)
+  ON DELETE CASCADE
 );
 
 
@@ -40,10 +42,7 @@ CREATE TABLE employee (
   -- ON DELETE CASCADE,
   -- Makes a numeric column called "manager_id" --
   manager_id INT,
-  -- CONSTRAINT fk_manager_id FOREIGN KEY (manager_id)
-  -- REFERENCES employee(id)
-  -- ON DELETE CASCADE
+  CONSTRAINT fk_manager_id FOREIGN KEY (manager_id)
+  REFERENCES employee(id)
+  ON DELETE CASCADE
 );
-
-
-
