@@ -1,44 +1,44 @@
-INSERT INTO department (id, name)
-VALUES (1, "defense"),
-       (2, "maintenence"),
-       (3, "lord vader's entourage"),
-       (4, "laundry");
+INSERT INTO department (id, title)
+VALUES (001, "defense"),
+       (002, "maintenence"),
+       (003, "lord vaders entourage"),
+       (004, "laundry");
 
-INSERT INTO roles (id, title, salary)
-VALUES (1, "stormtrooper", 30000.00);
-       (2, "tie fighter pilot", 40000.00),
-       (3, "gunner", 25000.00),
-       (4, "droid repair", 30000.00),
-       (5, "compactor services", 24000.00),
-       (6, "console repair", 30000.00),
-       (7, "personal armor buffer", 40000.00),
-       (8, "bacta bath operator", 28000.00),
-       (9, "respitory therapist", 50000.00),
-       (10, "armor polisher", 20000.00),
-       (11, "wash/dryer operator", 20000.00),
-       (12, "carbon hole repair", 24000.00);
+INSERT INTO roles (id, title, salary, department_id)
+VALUES (001, "stormtrooper", 30000.00, 001),
+       (002, "tie fighter pilot", 40000.00, 001),
+       (003, "gunner", 25000.00, 001),
+       (004, "droid repair", 30000.00, 002),
+       (005, "compactor services", 24000.00, 002),
+       (006, "console repair", 30000.00, 002),
+       (007, "personal armor buffer", 40000.00, 003),
+       (008, "bacta bath operator", 28000.00, 003),
+       (009, "respitory therapist", 50000.00, 003),
+       (010, "armor polisher", 20000.00, 003),
+       (011, "wash/dryer operator", 20000.00, 004),
+       (012, "carbon hole repair", 24000.00, 004);
 
 INSERT INTO employee (id, first_name, last_name, roles_id, manager_id)
-VALUES (1, "Charles", "Beatty", 3, NULL);
-       (2, "Yon", "Bermudez", 2, NULL ),
-       (3, "Denart", "Ifurung", 8, NULL ), 
-       (4, "Jerry", "Mccarty", 11, 1, NULL),
-       (5, "Kevin", "Nova", 1, 19),
-       (6, "Darren", "Ifurung", 4, 16),
-       (7, "Melany", "Pietrowski", 5, NULL),
-       (8, "Vincent", "Wells", 9, NULL), 
-       (9, "Calvin", "Whitaker", 12, NULL),
-       (10, "Jason", "Adams", 11, NULL),
-       (11, "Tim, Whitaker", 10, NULL),
-       (12, "Aaron", "Murtaugh", 7, NULL),
-       (13, "Charles", "Warden", 6, NULL),
-       (14, "Michael", "Smith", 2, 2),
-       (15, "Antony", "Rodriguez", 5, NULL),
-       (16, "Knick", "Byerlee", 4, NULL),
-       (17, "Robert", "Mahon", 3, 1),
-       (18, "Justin", "Redeker", 1, 19),
-       (19, "Gerry", "Brown", 1, NULL),
-       (20, "Douglas", "Pietrowski", 3, 1),
-       (21, "Aaron", "Wells", 8, 3);
+VALUES (001, "Charles", "Beatty", 003, NULL),
+       (002, "Yon", "Bermudez", 002, NULL ),
+       (003, "Denart", "Ifurung", 008, NULL ), 
+       (004, "Jerry", "Mccarty", 011, 001, NULL),
+       (005, "Kevin", "Nova", 001, 019),
+       (006, "Darren", "Ifurung", 004, 016),
+       (007, "Melany", "Pietrowski", 005, NULL),
+       (008, "Vincent", "Wells", 009, NULL), 
+       (009, "Calvin", "Whitaker", 0012, NULL),
+       (010, "Jason", "Adams", 011, NULL),
+       (011, "Tim, Whitaker", 010, NULL),
+       (012, "Aaron", "Murtaugh", 007, NULL),
+       (013, "Charles", "Warden", 006, NULL),
+       (014, "Michael", "Smith", 002, 002),
+       (015, "Antony", "Rodriguez", 005, NULL),
+       (016, "Knick", "Byerlee", 004, NULL),
+       (017, "Robert", "Mahon", 003, 001),
+       (018, "Justin", "Redeker", 001, 019),
+       (019, "Gerry", "Brown", 001, NULL),
+       (020, "Douglas", "Pietrowski", 003, 001),
+       (021, "Aaron", "Wells", 008, 003);
 
 

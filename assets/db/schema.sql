@@ -7,7 +7,7 @@ CREATE TABLE department (
   -- Creates a numeric column called "id" --
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   -- Makes a string column called "name" which cannot contain null --
-  name VARCHAR(30) NOT NULL
+  title VARCHAR(30) NOT NULL
 );
 
 

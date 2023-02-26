@@ -223,7 +223,7 @@ function addEmployee() {
                     type: "list",
                     message: "Who is the new employee's manager",
                     name: "employeeManager",
-                    choices: employeeList,$
+                    choices: employeeList,
                 },
             ])
             .then((data) => {
