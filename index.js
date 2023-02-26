@@ -138,14 +138,14 @@ function addRole() {
 function updateEmployeeRole() {
     db.query("SELECT id, title FROM roles", 
     (err, results)=> {
-        roleOptions= results.map((role)=> {
+        roleOptions= results.map((roles)=> {
             return { name: roles.title, value: roles.id };
         });
         db.query("SELECT id, first_name, last_name FROM employee",
         function(err, results){
             employeeList = results.map((employee) =>{
                 return {
-                    name: employee.first_name + "/" + employee.last_name,
+                    name: employee.last_name + ", " + employee.first_name,
                     value: employee.id,
                 };
             });
@@ -155,7 +155,7 @@ function updateEmployeeRole() {
                     type: "list",
                     message: "Select the employee you would like to update",
                     name: "newEmployeeRole",
-                    choices: roleOptions,
+                    choices: employeeList,
                 },
             ])
             .then((data) => {
@@ -205,23 +205,23 @@ function addEmployee() {
             inquirer.prompt([
                 {
                     type: "input",
-                    message: "What is the new employee's last name?",
+                    message: "What is the new employees last name?",
                     name: "lastName",
                 },
                 {
                     type: "input",
-                    message: "What is the new employee's first name?",
+                    message: "What is the new employees first name?",
                     name: "firstName",
                 },
                 {
                     type: "list",
-                    message: "What is the new employee's role",
+                    message: "What is the new employees role",
                     name: "employeeRole",
                     choices: roleList,
                 },
                 {
                     type: "list",
-                    message: "Who is the new employee's manager",
+                    message: "Who is the new employees manager",
                     name: "employeeManager",
                     choices: employeeList,
                 },
@@ -229,11 +229,11 @@ function addEmployee() {
             .then((data) => {
                 let newEmployee = data;
                 let { lastName, firstName } = newEmployee;
-                db.query("INSERT INTO employee SET ?,",
+                db.query("INSERT INTO employee SET ?",
                 {
                     last_name: lastName,
                     first_name: firstName,
-                    role_id: newEmployee.employeeRole,
+                    roles_id: newEmployee.employeeRole,
                     manager_id: newEmployee.employeeManager
                 },
                 (err, results) => {
