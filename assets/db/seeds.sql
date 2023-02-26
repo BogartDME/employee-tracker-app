@@ -1,44 +1,44 @@
-INSERT INTO department (id, title)
-VALUES (001, "defense"),
-       (002, "maintenence"),
-       (003, "lord vaders entourage"),
-       (004, "laundry");
+INSERT INTO department (title)
+VALUES ( "defense"),
+       ( "maintenence"),
+       ( "lord vaders entourage"),
+       ( "laundry");
 
-INSERT INTO roles (id, title, salary, department_id)
-VALUES (001, "stormtrooper", 30000.00, 001),
-       (002, "tie fighter pilot", 40000.00, 001),
-       (003, "gunner", 25000.00, 001),
-       (004, "droid repair", 30000.00, 002),
-       (005, "compactor services", 24000.00, 002),
-       (006, "console repair", 30000.00, 002),
-       (007, "personal armor buffer", 40000.00, 003),
-       (008, "bacta bath operator", 28000.00, 003),
-       (009, "respitory therapist", 50000.00, 003),
-       (010, "armor polisher", 20000.00, 003),
-       (011, "wash/dryer operator", 20000.00, 004),
-       (012, "carbon hole repair", 24000.00, 004);
+INSERT INTO roles (title, salary, department_id)
+VALUES ("stormtrooper", 30000.00, 1),
+       ("tie fighter pilot", 40000.00, 1),
+       ("gunner", 25000.00, 1),
+       ("droid repair", 30000.00, 2),
+       ("compactor services", 24000.00, 2),
+       ("console repair", 30000.00, 2),
+       ("personal armor buffer", 40000.00, 3),
+       ("bacta bath operator", 28000.00, 3),
+       ("respitory therapist", 50000.00, 3),
+       ("armor polisher", 20000.00, 3),
+       ("wash/dryer operator", 20000.00, 4),
+       ("carbon hole repair", 24000.00, 4);
 
-INSERT INTO employee (id, first_name, last_name, roles_id, manager_id)
-VALUES (001, "Charles", "Beatty", 003, NULL),
-       (002, "Yon", "Bermudez", 002, NULL ),
-       (003, "Denart", "Ifurung", 008, NULL ), 
-       (004, "Jerry", "Mccarty", 011, 001, NULL),
-       (005, "Kevin", "Nova", 001, 019),
-       (006, "Darren", "Ifurung", 004, 016),
-       (007, "Melany", "Pietrowski", 005, NULL),
-       (008, "Vincent", "Wells", 009, NULL), 
-       (009, "Calvin", "Whitaker", 0012, NULL),
-       (010, "Jason", "Adams", 011, NULL),
-       (011, "Tim, Whitaker", 010, NULL),
-       (012, "Aaron", "Murtaugh", 007, NULL),
-       (013, "Charles", "Warden", 006, NULL),
-       (014, "Michael", "Smith", 002, 002),
-       (015, "Antony", "Rodriguez", 005, NULL),
-       (016, "Knick", "Byerlee", 004, NULL),
-       (017, "Robert", "Mahon", 003, 001),
-       (018, "Justin", "Redeker", 001, 019),
-       (019, "Gerry", "Brown", 001, NULL),
-       (020, "Douglas", "Pietrowski", 003, 001),
-       (021, "Aaron", "Wells", 008, 003);
+INSERT INTO employee (first_name, last_name, roles_id, manager_id)
+VALUES ("Charles", "Beatty", 3, NULL),
+       ("Yon", "Bermudez", 2, NULL),
+       ("Denart", "Ifurung", 8, NULL ), 
+       ("Jerry", "Mccarty", 11, NULL),
+       ("Kevin", "Nova", 1, 101),
+       ("Darren", "Ifurung", 4, 102),
+       ("Melany", "Pietrowski", 5, NULL),
+       ("Vincent", "Wells", 9, 103), 
+       ("Calvin", "Whitaker", 12, 104),
+       ("Jason", "Adams", 11, NULL),
+       ("Tim", "Whitaker", 10, NULL),
+       ("Aaron", "Murtaugh", 7, NULL),
+       ("Charles", "Warden", 6, NULL),
+       ("Michael", "Smith", 2, NULL),
+       ("Antony", "Rodriguez", 5, NULL),
+       ("Knick", "Byerlee", 4, NULL),
+       ("Robert", "Mahon", 3, NULL),
+       ("Justin", "Redeker", 1, NULL),
+       ("Gerry", "Brown", 1, NULL),
+       ("Douglas", "Pietrowski", 3, NULL),
+       ("Aaron", "Wells", 8, NULL);
 
 

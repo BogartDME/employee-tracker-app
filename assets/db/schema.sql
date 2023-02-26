@@ -20,10 +20,10 @@ CREATE TABLE roles (
    -- Makes a numeric column called "salary" which cannot contain null --
   salary DECIMAL NOT NULL,
    -- Makes a numeric column called "department_id" which cannot contain null --
-  department_id INT,
-  FOREIGN KEY (department_id)
-   REFERENCES    department(id)
-  ON DELETE CASCADE
+  department_id INT
+  -- FOREIGN KEY (department_id)
+  --  REFERENCES    department(id)
+  -- ON DELETE CASCADE
 );
 
 
@@ -41,8 +41,8 @@ CREATE TABLE employee (
   -- REFERENCES roles(id)
   -- ON DELETE CASCADE,
   -- Makes a numeric column called "manager_id" --
-  manager_id INT,
-  CONSTRAINT fk_manager_id FOREIGN KEY (manager_id)
-  REFERENCES employee(id)
-  ON DELETE CASCADE
+  manager_id INT
+  -- CONSTRAINT fk_manager_id FOREIGN KEY (manager_id)
+  -- REFERENCES employee(id)
+  -- ON DELETE CASCADE
 );

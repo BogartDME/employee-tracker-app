@@ -193,7 +193,7 @@ function addEmployee() {
                 };
             });
             employeeList.push({name: "none", value: "null"});
-            db.query("SELECT id, title FROM roles"),
+            db.query("SELECT id, title FROM roles",
             (err, results) => {
                 roleList = results.map((roles) => {
                     return {
@@ -201,7 +201,7 @@ function addEmployee() {
                         value: roles.id
                     };
                 });
-            }
+            
             inquirer.prompt([
                 {
                     type: "input",
@@ -243,7 +243,9 @@ function addEmployee() {
                 });
             });
         });
-}
+    });
+}    
+
 
 employeePrompts();
 
