@@ -28,19 +28,26 @@ const employeePrompts = () => {
         .then((data) =>{
             switch(data.start){
                 case "View all departments":
-                    return showDepartments();
+                    showDepartments();
+                    break
                 case "Add Department":
-                    return addDepartment();
+                    addDepartment();
+                    break
                 case "View all roles":
-                    return showRoles();
+                    showRoles();
+                    break
                 case "Add role":
-                    return addRole();
+                    addNewRole();
+                    break
                 case "Update employee role":
-                    return updateEmployeeRole();
+                    updateEmployeeRole();
+                    break
                 case "View all employees":
-                    return showEmployees();
+                    showEmployees();
+                    break
                 case "Add employee":
-                    return addEmployee();
+                    addEmployee();
+                    break
                 case "Quit":
                     db.end();
                     return
@@ -51,7 +58,7 @@ const employeePrompts = () => {
     });
 }
 
-//View All Departments\
+//Show All Departments
 function showDepartments() {
     db.query("SELECT * FROM department;",
     (err, results) =>{
@@ -85,10 +92,19 @@ function addDepartment() {
     });
 } 
 
-//View all roles
+//Show all roles
+// function showRoles() {
+//     db.query("SELECT * FROM roles;", 
+//     (err, results) => {
+//         if (err) throw err;
+//         console.table(results);
+//         employeePrompts();
+//     });
+// }
+
 function showRoles() {
-    db.query("SELECT * FROM roles", 
-    (err, results) => {
+    db.query('SELECT * FROM roles', 
+    (err, results) =>{
         if (err) throw err;
         console.table(results);
         employeePrompts();
@@ -96,14 +112,15 @@ function showRoles() {
 }
 
 //Add new role
-function addRole() {
+function addNewRole() {
     db.query("SELECT * FROM department",
     function (err, results) {
-        departmentList= results.map((department) => {
+        departmentList = results.map((department) => {
             return {
                 name: department.title,
                 value: department.id,
             };
+        });
             inquirer.prompt([
                 {
                     type: "input",
@@ -124,15 +141,15 @@ function addRole() {
             ])
             .then((data) => {
                 const newRole = "INSERT INTO roles SET ?";
-                db.query(newRole. data, function (err, results){
+                db.query(newRole, data, function (err, results){
                     if (err) throw err;
                     console.log("Your new role has been created");
                     employeePrompts();
                 });
             });
         });
-    });
-}
+    };
+
 
 //update employee's role
 function updateEmployeeRole() {
@@ -154,15 +171,22 @@ function updateEmployeeRole() {
                 {
                     type: "list",
                     message: "Select the employee you would like to update",
-                    name: "newEmployeeRole",
+                    name: "updateEmployee",
                     choices: employeeList,
                 },
+                {
+                    type: "list",
+                    message: "What would you like their new role to be?",
+                    name: "newEmployeeRole",
+                    choices: roleOptions,
+                }
             ])
             .then((data) => {
                 db.query("UPDATE employee SET roles_Id = ? WHERE id = ?",
                 [data.newEmployeeRole, data.updateEmployee],
                 function (err, results) {
-                    console.log("The employee updates are saved");
+                    console.log(employeeList);
+                    console.log(`Your employee update has been completed`);
                     employeePrompts();
                 });
             });
@@ -188,7 +212,7 @@ function addEmployee() {
         (err, results) => {
             employeeList = results.map((employee) => {
                 return {
-                    name: employee.first_name + "/" + employee.last_name,
+                    name: employee.last_name + ", " + employee.first_name,
                     value: employee.id
                 };
             });
@@ -238,7 +262,7 @@ function addEmployee() {
                 },
                 (err, results) => {
                     if (err) console.error(err);
-                    console.log("New employee has been added successfully")
+                    console.log(`${newEmployee.lastName}, ${newEmployee.firstName} has been added successfully`)
                     employeePrompts();
                 });
             });
