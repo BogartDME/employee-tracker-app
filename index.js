@@ -22,30 +22,30 @@ const employeePrompts = () => {
         {
             type: "list",
             name: "start",
-            choices: ["View all departments", "Add department", "View all Roles", "Add role", "View all employees", "Update employee role", "Add employee", "Quit"]
+            choices: ["View all Departments", "Add Department", "View all Roles", "Add Role", "View all Employees", "Update Employee Role", "Add Employee", "Quit"]
         },
     ])
         .then((data) =>{
             switch(data.start){
-                case "View all departments":
+                case "View all Departments":
                     showDepartments();
                     break
                 case "Add Department":
                     addDepartment();
                     break
-                case "View all roles":
+                case "View all Roles":
                     showRoles();
                     break
-                case "Add role":
+                case "Add Role":
                     addNewRole();
                     break
-                case "Update employee role":
+                case "Update Employee Role":
                     updateEmployeeRole();
                     break
-                case "View all employees":
+                case "View all Employees":
                     showEmployees();
                     break
-                case "Add employee":
+                case "Add Employee":
                     addEmployee();
                     break
                 case "Quit":
