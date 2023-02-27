@@ -86,7 +86,7 @@ function addDepartment() {
         },
         function (err, results) {
         console.table(results); 
-        console.log("Your new department has been added to the database");
+        console.log("Your new department has been added");
         employeePrompts();
         });
     });
